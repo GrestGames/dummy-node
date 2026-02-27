@@ -1,0 +1,13 @@
+node_modules
+.idea
+.elasticbeanstalk/
+.DS_Store
+**/*.js
+**/*.d.ts
+**/*.js.map
+tsconfig.tsbuildinfo
+package-lock.json
+/build
+/dist
+server/dist/package.json
+coverage

@@ -1,0 +1,14 @@
+{
+  "services": {
+    "server": {
+      "dir": "server",
+      "command": "npm run dev",
+      "port": 9000
+    },
+    "client": {
+      "dir": "client",
+      "command": "npm run dev",
+      "port": 3000
+    }
+  }
+}

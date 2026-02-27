@@ -1,0 +1,9 @@
+{
+  "name": "dummy-node",
+  "private": true,
+  "workspaces": [
+    "api",
+    "server",
+    "client"
+  ]
+}
