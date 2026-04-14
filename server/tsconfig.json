@@ -1,6 +1,7 @@
 {
   "include": ["src/**/*.ts", "test/**/*.ts"],
   "exclude": ["node_modules"],
+  "references": [{ "path": "../api" }],
   "compilerOptions": {
     "experimentalDecorators": true,
     "outDir": "dist",
