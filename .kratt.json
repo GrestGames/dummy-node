@@ -10,5 +10,18 @@
       "command": "npm run dev",
       "port": 3000
     }
-  }
+  },
+  "setup": {                                                                                                                                                                                                                                               
+      "steps": [                                                                                                                                                                                                                                               
+        {                                                                                                                                                                                                                                                    
+          "name": "marker_kratt",                                                                                                                                                                                                                              
+          "run": "echo kratt > /workspace/tmp_from_setup && id -un >> /workspace/tmp_from_setup"
+        },                                                                                                                                                                                                                                                     
+        {                                                                                                                                                                                                                                                    
+          "name": "marker_root",
+          "run": "apt-get install -y -qq jq",                                                                                                                                                                                                                  
+          "sudo": true                    
+        }                                                                                                                                                                                                                                                      
+      ]                                                                                                                                                                                                                                                        
+    }
 }
