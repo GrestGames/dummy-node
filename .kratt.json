@@ -12,7 +12,8 @@
     }
   },
   "setup": {                                                                                                                                                                                                                                               
-      "init": [                                                                                                                                                                                                                                               
+      "init": [  
+        {"name": "deps", "run": "npm install"},
         {                                                                                                                                                                                                                                                    
           "name": "marker_kratt",                                                                                                                                                                                                                              
           "run": "echo kratt > /workspace/tmp_from_setup && id -un >> /workspace/tmp_from_setup"
