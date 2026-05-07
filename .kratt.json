@@ -12,7 +12,7 @@
     }
   },
   "setup": {                                                                                                                                                                                                                                               
-      "steps": [                                                                                                                                                                                                                                               
+      "init": [                                                                                                                                                                                                                                               
         {                                                                                                                                                                                                                                                    
           "name": "marker_kratt",                                                                                                                                                                                                                              
           "run": "echo kratt > /workspace/tmp_from_setup && id -un >> /workspace/tmp_from_setup"
@@ -22,6 +22,9 @@
           "run": "apt-get install -y -qq jq",                                                                                                                                                                                                                  
           "sudo": true                    
         }                                                                                                                                                                                                                                                      
-      ]                                                                                                                                                                                                                                                        
+      ],
+      "finalize": [                                                                                                                                                                                                                                                
+        {"name": "marker_finalize", "run": "echo finalize > /workspace/tmp_from_finalize && id -un >> /workspace/tmp_from_finalize"}                                                                                                                             
+      ]
     }
 }
