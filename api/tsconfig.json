@@ -2,6 +2,7 @@
   "include": ["src/**/*.ts"],
   "exclude": ["node_modules"],
   "compilerOptions": {
+    "composite": true,
     "experimentalDecorators": true,
     "outDir": "dist",
     "esModuleInterop": true,

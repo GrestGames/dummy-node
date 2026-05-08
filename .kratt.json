@@ -3,12 +3,31 @@
     "server": {
       "dir": "server",
       "command": "npm run dev",
-      "port": 9000
+      "port": 9000,
+      "kind": "backend"
     },
     "client": {
       "dir": "client",
       "command": "npm run dev",
-      "port": 3000
+      "port": 3000,
+      "kind": "frontend"
     }
-  }
+  },
+  "setup": {                                                                                                                                                                                                                                               
+      "init": [  
+        {"name": "deps", "run": "npm install"},
+        {                                                                                                                                                                                                                                                    
+          "name": "marker_kratt",                                                                                                                                                                                                                              
+          "run": "echo kratt > /workspace/tmp_from_setup && id -un >> /workspace/tmp_from_setup"
+        },                                                                                                                                                                                                                                                     
+        {                                                                                                                                                                                                                                                    
+          "name": "marker_root",
+          "run": "apt-get install -y -qq jq",                                                                                                                                                                                                                  
+          "sudo": true                    
+        }                                                                                                                                                                                                                                                      
+      ],
+      "finalize": [                                                                                                                                                                                                                                                
+        {"name": "marker_finalize", "run": "echo finalize > /workspace/tmp_from_finalize && id -un >> /workspace/tmp_from_finalize"}                                                                                                                             
+      ]
+    }
 }
