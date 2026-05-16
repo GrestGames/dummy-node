@@ -29,5 +29,9 @@
       "finalize": [                                                                                                                                                                                                                                                
         {"name": "marker_finalize", "run": "echo finalize > /workspace/tmp_from_finalize && id -un >> /workspace/tmp_from_finalize"}                                                                                                                             
       ]
+    },
+  "routes": {
+      "web": 3000,
+      "api": 9000
     }
 }
