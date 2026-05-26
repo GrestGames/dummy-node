@@ -9,5 +9,6 @@
       {"kind": "bash:setup", "bash": "echo finalize > /workspace/tmp_from_finalize && id -un >> /workspace/tmp_from_finalize"},
       {"kind": "bash:down", "bash": "date +%s.%N >> /workspace/tmp_from_down"}
     ],
-   "prBranch": "master"
+   "prBranch": "master",
+    "branches": ["dev"]
   }
