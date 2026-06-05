@@ -20,6 +20,13 @@ export const HelloApiContract = new GGContractClass("HelloApi", {
         input: IsHelloRequest,
         success: IsHelloResponse,
         errors: [VALIDATION_ERROR, SERVER_ERROR]
+    },
+    // Always throws — lets the client trigger a real server error round-trip to
+    // exercise the built-in browser's console capture.
+    fail: {
+        input: IsObject({}),
+        success: IsHelloResponse,
+        errors: [SERVER_ERROR]
     }
 })
 
@@ -28,5 +35,6 @@ export const HelloApiContract = new GGContractClass("HelloApi", {
 export const HelloApi = httpSchema(HelloApiContract)
     .pathPrefix("api/hello")
     .routes({
-        hello: GGRpc.POST("hello")
+        hello: GGRpc.POST("hello"),
+        fail: GGRpc.POST("fail")
     })
