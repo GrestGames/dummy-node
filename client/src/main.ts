@@ -59,10 +59,16 @@ function renderHome() {
     view.innerHTML = `<div class="card">
         <input type="text" id="nameInput" placeholder="Enter your name..." value="World"/>
         <button id="callBtn">Call HelloApi</button>
+        <div style="display:flex; gap:0.5rem; margin-top:0.75rem">
+            <button id="errBtn" style="background:#dc2626">Force server error</button>
+            <button id="warnBtn" style="background:#d97706">Trigger warning</button>
+        </div>
         <div id="result"></div>
     </div>`
     const nameInput = document.getElementById("nameInput") as HTMLInputElement
     const callBtn = document.getElementById("callBtn") as HTMLButtonElement
+    const errBtn = document.getElementById("errBtn") as HTMLButtonElement
+    const warnBtn = document.getElementById("warnBtn") as HTMLButtonElement
     const resultDiv = document.getElementById("result") as HTMLDivElement
     callBtn.addEventListener("click", async () => {
         try {
@@ -75,6 +81,25 @@ function renderHome() {
             resultDiv.style.display = "block"
             resultDiv.className = "error"
         }
+    })
+    // Round-trips a real server error, then logs it — feeds the route browser's
+    // console panel + its red error-count badge.
+    errBtn.addEventListener("click", async () => {
+        try {
+            await helloApi.fail({})
+        } catch (err) {
+            console.error("Dummy server error:", err)
+            resultDiv.textContent = "Server error logged to console: " + String(err)
+            resultDiv.style.display = "block"
+            resultDiv.className = "error"
+        }
+    })
+    // Client-side warning — feeds the console panel's amber warning-count badge.
+    warnBtn.addEventListener("click", () => {
+        console.warn("Dummy client warning for browser-UI testing")
+        resultDiv.textContent = "Warning logged to console."
+        resultDiv.style.display = "block"
+        resultDiv.className = ""
     })
 }
 
