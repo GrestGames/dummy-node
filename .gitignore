@@ -11,3 +11,4 @@ package-lock.json
 /dist
 server/dist/package.json
 coverage
+/client/build
