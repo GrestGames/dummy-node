@@ -4,8 +4,10 @@
       {"kind": "bash:setup", "bash": "echo kratt > /workspace/tmp_from_setup && id -un >> /workspace/tmp_from_setup"},
       {"kind": "bash:setup", "bash": "apt-get install -y -qq jq", "sudo": true},
       {"kind": "bash:up",   "bash": "date +%s.%N >> /workspace/tmp_from_up"},
-      {"kind": "backend",  "name": "server", "dir": "server", "bash": "npm run dev", "port": 9000, "expose": "api"},
-      {"kind": "frontend", "name": "client", "dir": "client", "bash": "npm run dev", "port": 3000, "expose": "web"},
+      {"kind": "backend",  "name": "server", "dir": "server", "bash": "npm run dev", "port": 9000, "expose": "api",
+        "build": {"bash": "npm run build", "sources": ["dist/*", "build-info.json"], "stamp": ["build-info.json"], "check": "test -s server.js && test -s package.json"}},
+      {"kind": "frontend", "name": "client", "dir": "client", "bash": "npm run dev", "port": 3000, "expose": "web",
+        "build": {"bash": "npm run build", "sources": ["build/*", "build-info.json"], "stamp": ["build-info.json"], "check": "test -s  index.html"}},
       {"kind": "bash:setup", "bash": "echo finalize > /workspace/tmp_from_finalize && id -un >> /workspace/tmp_from_finalize"},
       {"kind": "bash:down", "bash": "date +%s.%N >> /workspace/tmp_from_down"}
     ],
