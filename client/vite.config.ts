@@ -13,10 +13,7 @@ export default defineConfig({
         },
     },
     build: {
-        outDir: 'build',
-        rollupOptions: {
-            external: ['@grest-ts/discovery'],
-        },
+        outDir: 'build'
     },
     resolve: {
         alias: {
