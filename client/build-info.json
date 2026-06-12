@@ -1,0 +1,6 @@
+{
+      "version": "__KRATT_BUILD_VERSION__",
+      "sha": "__KRATT_BUILD_SHA__",
+      "branch": "__KRATT_BUILD_BRANCH__", 
+      "service": "__KRATT_BUILD_SERVICE__"
+  }
