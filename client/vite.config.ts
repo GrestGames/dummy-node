@@ -15,7 +15,7 @@ export default defineConfig({
     build: {
         outDir: 'build',
         rollupOptions: {
-            external: ['@gg/discovery'],
+            external: ['@grest-ts/discovery'],
         },
     },
     resolve: {
